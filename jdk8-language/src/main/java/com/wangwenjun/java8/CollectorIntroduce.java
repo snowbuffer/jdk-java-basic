@@ -44,7 +44,7 @@ public class CollectorIntroduce {
 
     private static Map<String, List<Apple>> groupByFunction(List<Apple> apples) {
         Map<String, List<Apple>> map = new HashMap<>();
-        apples.parallelStream().forEach(a -> {
+        apples.stream().forEach(a -> { // parallelStream 会有多线程问题
             List<Apple> colorList = Optional.ofNullable(map.get(a.getColor())).orElseGet(() -> {
                 List<Apple> list = new ArrayList<>();
                 map.put(a.getColor(), list);

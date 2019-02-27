@@ -31,21 +31,28 @@ public class CompletableFutureInAction {
             t.printStackTrace();
         });*/
 
+        // 等效上述代码，无需自定义thread过程
         /*CompletableFuture<Double> future = CompletableFuture.supplyAsync(CompletableFutureInAction::get);
-
         future.whenComplete((v, t) -> {
             System.out.println(v);
             t.printStackTrace();
-        });*/
+        });
+//        future.join();  // 阻塞进行，直到任务完成
+        System.out.println("..............");*/
 
-/*        long start = System.currentTimeMillis();
-        List<Double> doubles = Arrays.asList(random.nextDouble(), random.nextDouble(), random.nextDouble(), random.nextDouble(), random.nextDouble());
+        /*long start = System.currentTimeMillis();
+        List<Double> doubles = Arrays.asList(
+                random.nextDouble(),
+                random.nextDouble(),
+                random.nextDouble(),
+                random.nextDouble(),
+                random.nextDouble());
         System.out.println(doubles);
         List<CompletableFuture<Double>> futures = doubles
                 .stream()
                 .map(d -> CompletableFuture.supplyAsync(() -> {
                     try {
-                        Thread.sleep(10000L);
+                        Thread.sleep(1000L);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -53,22 +60,22 @@ public class CompletableFutureInAction {
                 }))
                 .collect(toList());
 
-        List<Double> collect = futures.stream().parallel().map(f -> f.join()).collect(toList());
+        List<Double> collect = futures.stream().map(f -> f.join()).collect(toList());
         System.out.println(collect);
         System.out.println(start-System.currentTimeMillis());*/
 
         /*Executor executor = Executors.newFixedThreadPool(2, r -> {
             Thread t = new Thread(r);
-            t.setDaemon(true);
+            t.setDaemon(true); // 设置后台线程
             return t;
         });
         executor.execute(() -> System.out.println("sfsdfsfs"));*/
 
         Double value = CompletableFuture.supplyAsync(CompletableFutureInAction::get)
-                .whenComplete((v, t) -> System.out.println(">>>>" + v))
-                .thenCompose(i -> CompletableFuture.supplyAsync(() -> i + 10))
+                .whenComplete((v, t) -> System.out.println(">>>>" + v)) // 先执行
+                .thenCompose(i -> CompletableFuture.supplyAsync(() -> i + 10)) // 后执行
                 .get();
-        System.out.println(value);
+        System.out.println("==" + value);
     }
 
     private static double get() {

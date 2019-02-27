@@ -9,12 +9,7 @@ public class TestLambda1 {
     //原来的匿名内部类
     @Test
     public void test1() {
-        Comparator<String> com = new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return Integer.compare(o1.length(), o2.length());
-            }
-        };
+        Comparator<String> com = Comparator.comparingInt(String::length);  // equeal to Comparator.comparingInt((a) -> a.length());
 
         TreeSet<String> ts = new TreeSet<>(com);
 

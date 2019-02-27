@@ -41,6 +41,17 @@ public class AccumulatorRecursiveAction extends RecursiveAction {
         }
     }
 
+    public static void main(String[] args) {
+        AccumulatorHelper.accumulate(1);
+        System.out.println(AccumulatorHelper.getResult());
+
+        AccumulatorHelper.accumulate(1);
+        System.out.println(AccumulatorHelper.getResult());
+
+        AccumulatorHelper.accumulate(1);
+        System.out.println(AccumulatorHelper.getResult());
+    }
+
     static class AccumulatorHelper {
 
         private static final AtomicInteger result = new AtomicInteger(0);

@@ -74,6 +74,7 @@ public class TestStreamaAPI {
                     return e.getAge() <= 35;
                 });
 
+        System.out.println("===============");
         //只有当做终止操作时，所有的中间操作会一次性的全部执行，称为“惰性求值”
         stream.forEach(System.out::println);
     }

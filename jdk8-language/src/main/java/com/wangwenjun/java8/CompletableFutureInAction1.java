@@ -34,12 +34,12 @@ public class CompletableFutureInAction1 {
 
     static double get() {
         try {
-            Thread.sleep(RANDOM.nextInt(10000));
+            Thread.sleep(RANDOM.nextInt(500));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         double result = RANDOM.nextDouble();
-        System.out.println(result);
+        System.out.println(Thread.currentThread().getName() + result);
         return result;
     }
 }

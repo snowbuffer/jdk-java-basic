@@ -28,20 +28,20 @@ public class CollectorReduce {
         Long collect = menu.stream().filter(d -> d.isVegetarian()).collect(Collectors.counting());
 
 //        Optional<Integer> maxCalories = menu.stream().map(Dish::getCalories).reduce(Integer::max);
+        // reduce 分析： https://blog.csdn.net/icarusliu/article/details/79504602
         Optional<Dish> maxCalories = menu.stream().reduce((d1, d2) -> d1.getCalories() > d2.getCalories() ? d1 : d2);
-        maxCalories.ifPresent(System.out::println);
+        maxCalories.ifPresent((item) -> System.out.println("==" + item));
 
         Optional<Dish> maxCaloriesCollect = menu.stream().collect(Collectors.maxBy(Comparator.comparingInt(Dish::getCalories)));
         maxCaloriesCollect.ifPresent(System.out::println);
 
 
         Integer collect1 = menu.stream().collect(Collectors.collectingAndThen(toList(), t -> t.size()));
-
-
+        System.out.println("==" + collect1);
         Map<Dish.Type, List<Dish>> collect2 = menu.stream().collect(Collectors.groupingBy(Dish::getType));
 
         Map<Dish.Type, Double> collect3 = menu.stream().collect(Collectors.groupingBy(Dish::getType, Collectors.averagingInt(Dish::getCalories)));
-
+        System.out.println("==" + collect3);
 
     }
 }

@@ -39,7 +39,7 @@ public class TestStreamAPI {
     @Test
     public void test2() {
         Optional<Integer> count = emps.stream()
-                .map((e) -> 1)
+                .map((e) -> e.getAge())
                 .reduce(Integer::sum);
 
         System.out.println(count.get());
