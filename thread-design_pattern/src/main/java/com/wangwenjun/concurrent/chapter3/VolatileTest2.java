@@ -7,7 +7,7 @@ package com.wangwenjun.concurrent.chapter3;
  ***************************************/
 public class VolatileTest2 {
 
-    private static volatile int INIT_VALUE = 0;
+    private static volatile int INIT_VALUE = 0; // 只保证读取最新数据，但不保证原子性
 
     private final static int MAX_LIMIT = 500;
 

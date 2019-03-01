@@ -1,4 +1,4 @@
-package com.wangwenjun.concurrent.chapter4;
+package com.wangwenjun.concurrent.chapter4.observer;
 
 import java.util.ArrayList;
 import java.util.List;

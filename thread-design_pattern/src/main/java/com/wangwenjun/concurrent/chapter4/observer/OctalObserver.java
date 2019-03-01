@@ -1,18 +1,18 @@
-package com.wangwenjun.concurrent.chapter4;
+package com.wangwenjun.concurrent.chapter4.observer;
 
 /***************************************
  * @author:Alex Wang
  * @Date:2017/3/18 QQ:532500648
  * QQ交流群:286081824
  ***************************************/
-public class BinaryObserver extends Observer {
+public class OctalObserver extends Observer {
 
-    public BinaryObserver(Subject subject) {
+    public OctalObserver(Subject subject) {
         super(subject);
     }
 
     @Override
     public void update() {
-        System.out.println("Binary String:" + Integer.toBinaryString(subject.getState()));
+        System.out.println("Octal String:" + Integer.toOctalString(subject.getState()));
     }
 }

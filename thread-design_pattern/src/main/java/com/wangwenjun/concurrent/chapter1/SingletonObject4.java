@@ -19,7 +19,7 @@ public class SingletonObject4 {
         if (null == instance) {
             synchronized (SingletonObject4.class) {
                 if (null == instance)
-                    instance = new SingletonObject4();
+                    instance = new SingletonObject4(); // 实例化一个对象，需要很多过程，可能会导致该实例内部的成员变量为null
             }
         }
 

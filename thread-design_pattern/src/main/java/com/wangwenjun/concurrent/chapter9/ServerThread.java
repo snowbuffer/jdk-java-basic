@@ -28,7 +28,7 @@ public class ServerThread extends Thread {
                 System.out.println("Received the empty request.");
                 continue;
             }
-            System.out.println("Server ->" + request.getValue());
+            System.out.println(Thread.currentThread().getName() + " Server ->" + request.getValue());
             try {
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {

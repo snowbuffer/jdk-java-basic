@@ -32,10 +32,4 @@ public class SyncInvoker {
         Thread.sleep(1000);
         System.out.println("===========");
     }
-
-    private static String get()
-            throws InterruptedException {
-        Thread.sleep(10000l);
-        return "FINISH";
-    }
 }
