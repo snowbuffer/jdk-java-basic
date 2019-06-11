@@ -19,6 +19,23 @@ import java.util.function.*;
  * 注意：
  * 	 ①方法引用所引用的方法的参数列表与返回值类型，需要与函数式接口中抽象方法的参数列表和返回值类型保持一致！
  * 	 ②若Lambda 的参数列表的第一个参数，是实例方法的调用者，第二个参数(或无参)是实例方法的参数时，格式： ClassName::MethodName
+ *   方法引用总结：
+ *      1. 若 Lambda 体中的功能，已经有方法提供了实现，可以使用方法引用
+ *             1.1  如果Lambda 的参数列表的第一个参数，是实例方法的调用者，第二个参数(或无参)是实例方法的参数时，格式： ClassName::MethodName
+ *                  实例1：有参
+ *                         BiPredicate<String, String> bp = (x, y) -> x.equals(y);
+ *                         等价于
+ *                         BiPredicate<String, String> bp = String:equals;
+ *                  实例2：无参
+ *                         Function<Employee, String> fun = (e) -> e.show(); => Employee#show()方法
+ *                         等价于
+ *                         Function<Employee, String> fun = Employee::show;
+ *
+ *             2.2  如果有方法提供了实现是静态方法，则可以使用ClassName::MethodName
+ *                  实例1：
+ *                         BiFunction<Double, Double, Double> fun = (x, y) -> Math.max(x, y);
+ *                         等价于
+ *                         BiFunction<Double, Double, Double> fun = Math.max;
  *
  * 二、构造器引用 :构造器的参数列表，需要与函数式接口中参数列表保持一致！
  *
