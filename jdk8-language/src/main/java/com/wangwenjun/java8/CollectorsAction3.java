@@ -32,6 +32,7 @@ public class CollectorsAction3 {
         System.out.println("testPartitioningByWithPredicate");
         Map<Boolean, List<Dish>> collect = menu.stream().collect(Collectors.partitioningBy(Dish::isVegetarian));
         Optional.of(collect).ifPresent(System.out::println);
+        System.out.println(menu.stream().collect(Collectors.groupingBy(Dish::isVegetarian)));
 
     }
 
@@ -40,10 +41,11 @@ public class CollectorsAction3 {
         Map<Boolean, Double> collect = menu.stream()
                 .collect(Collectors.partitioningBy(Dish::isVegetarian, Collectors.averagingInt(Dish::getCalories)));
         Optional.of(collect).ifPresent(System.out::println);
+        System.out.println(menu.stream().collect(Collectors.groupingBy(Dish::isVegetarian, Collectors.averagingInt(Dish::getCalories))));
     }
 
     private static void testReducingBinaryOperator() {
-        System.out.println("testReducingBinaryOperator");
+        System.out.println("==testReducingBinaryOperator");
         menu.stream().collect(
                 Collectors.reducing(
                         BinaryOperator.maxBy(
