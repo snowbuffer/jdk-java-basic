@@ -30,6 +30,7 @@ public class DateTest {
             }).start();
         }*/
 
+        testLocalDate2();
 //        testLocalDate();
 //        testLocalTime();
 //        combineLocalDateAndTime();
@@ -37,7 +38,20 @@ public class DateTest {
 //        testDuration();
 //        testPeriod();
 //        testDateFormat();
-        testDateParse();
+//        testDateParse();
+    }
+
+    private static void testLocalDate2() {
+        DateTimeFormatter mySelfFormatter = DateTimeFormatter.ofPattern("yyyy-MM");
+
+        LocalDate now = LocalDate.now();
+        System.out.println(now.format(mySelfFormatter));
+
+        LocalDate localDate = now.minusMonths(3);
+        System.out.println(localDate.format(mySelfFormatter));
+
+        localDate = now.plusMonths(3);
+        System.out.println(localDate.format(mySelfFormatter));
     }
 
     private static void testLocalDate() {
