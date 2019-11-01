@@ -18,13 +18,21 @@ public class ThreadCloseForce {
 
             }*/
             try {
-                Thread.sleep(5000);
+                Thread.sleep(50000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
+
         service.shutdown(10000);
         long end = System.currentTimeMillis();
         System.out.println(end - start);
+
+        try {
+            Thread.sleep(100000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }
