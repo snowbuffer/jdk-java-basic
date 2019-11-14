@@ -13,6 +13,7 @@
         <module>thread-classloader</module>
         <module>thread-concurrent</module>
         <module>jdk8-language</module>
+        <module>common</module>
     </modules>
     <packaging>pom</packaging>
     <description>jdk-java-basic</description>
@@ -28,6 +29,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.22</version>
         </dependency>
     </dependencies>
 
