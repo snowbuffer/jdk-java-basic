@@ -1,6 +1,7 @@
 package oop.v4;
 
-import com.snowbuffer.spring.guide.test.v2.RequestInfo;
+
+import oop.v2.RequestInfo;
 
 import java.util.ArrayList;
 import java.util.List;

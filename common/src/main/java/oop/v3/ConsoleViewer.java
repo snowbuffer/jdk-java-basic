@@ -1,7 +1,7 @@
 package oop.v3;
 
 import com.google.gson.Gson;
-import com.snowbuffer.spring.guide.test.v2.RequestStat;
+import oop.v2.RequestStat;
 
 import java.util.Map;
 

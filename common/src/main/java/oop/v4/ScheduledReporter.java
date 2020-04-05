@@ -1,10 +1,10 @@
 package oop.v4;
 
-import com.snowbuffer.spring.guide.test.v2.MetricsStorage;
-import com.snowbuffer.spring.guide.test.v2.RequestInfo;
-import com.snowbuffer.spring.guide.test.v2.RequestStat;
-import com.snowbuffer.spring.guide.test.v3.Aggregator;
-import com.snowbuffer.spring.guide.test.v3.StatViewer;
+import oop.v2.MetricsStorage;
+import oop.v2.RequestInfo;
+import oop.v2.RequestStat;
+import oop.v3.Aggregator;
+import oop.v3.StatViewer;
 
 import java.util.List;
 import java.util.Map;

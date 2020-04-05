@@ -1,9 +1,9 @@
 package oop.v3;
 
-import com.snowbuffer.spring.guide.test.v2.MetricsCollector;
-import com.snowbuffer.spring.guide.test.v2.MetricsStorage;
-import com.snowbuffer.spring.guide.test.v2.RedisMetricsStorage;
-import com.snowbuffer.spring.guide.test.v2.RequestInfo;
+import oop.v2.MetricsCollector;
+import oop.v2.MetricsStorage;
+import oop.v2.RedisMetricsStorage;
+import oop.v2.RequestInfo;
 
 /**
  * Description:  view重构
