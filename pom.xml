@@ -14,6 +14,7 @@
         <module>thread-concurrent</module>
         <module>jdk8-language</module>
         <module>common</module>
+        <module>design_pattern</module>
     </modules>
     <packaging>pom</packaging>
     <description>jdk-java-basic</description>
