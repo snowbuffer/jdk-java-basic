@@ -127,6 +127,8 @@ public class BubbleSort {
             }
             if (!hasSwitch) {
                 break;
+            } else {
+                hasSwitch = false;
             }
         }
         System.out.println("冒泡排序结果：" + Arrays.toString(newArr));
