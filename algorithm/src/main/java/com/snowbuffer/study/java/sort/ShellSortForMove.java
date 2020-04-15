@@ -35,6 +35,6 @@ public class ShellSortForMove {
                 newArray[needSortInsertIndex + group] = needSortValue;
             }
         }
-        System.out.println("希尔排序[交换法]结果：" + Arrays.toString(newArray));
+        System.out.println("希尔排序[移动法]结果：" + Arrays.toString(newArray));
     }
 }
