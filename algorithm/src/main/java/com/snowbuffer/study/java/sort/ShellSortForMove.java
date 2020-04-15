@@ -22,7 +22,7 @@ public class ShellSortForMove {
 
     public static void main(String[] args) {
         System.out.println("希尔排序[移动法-插入排序]");
-        int[] newArray = {8, 9, 1, 7, 2, 3, 5, 4, 11, 6, 0};
+        int[] newArray = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
         int temp = 0;
         for (int group = newArray.length / 2; group >= 1; group = group / 2) {
             for (int i = group/*组数*/; i < newArray.length; i++) {
