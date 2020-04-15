@@ -9,11 +9,11 @@ import java.util.Arrays;
  * @since 2020-04-14 22:59
  */
 public class BubbleSort {
-    
-    
+
+
     public static void main(String[] args) {
 
-        int[] arr = {6,5,4,3,2,1};
+        int[] arr = {6, 5, 4, 3, 2, 1};
 
 
         // 推演：
@@ -52,10 +52,10 @@ public class BubbleSort {
         // 第一趟排序
         int temp = 0;
         for (int i = 0; i < arr.length - 1 - 0; i++) {
-            if (arr[i] > arr[i+1]) {
+            if (arr[i] > arr[i + 1]) {
                 temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
             }
         }
 
@@ -64,10 +64,10 @@ public class BubbleSort {
         // 第二趟排序
         temp = 0;
         for (int i = 0; i < arr.length - 1 - 1; i++) {
-            if (arr[i] > arr[i+1]) {
+            if (arr[i] > arr[i + 1]) {
                 temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
             }
         }
 
@@ -76,10 +76,10 @@ public class BubbleSort {
         // 第三趟排序
         temp = 0;
         for (int i = 0; i < arr.length - 1 - 2; i++) {
-            if (arr[i] > arr[i+1]) {
+            if (arr[i] > arr[i + 1]) {
                 temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
             }
         }
 
@@ -88,10 +88,10 @@ public class BubbleSort {
         // 第四趟排序
         temp = 0;
         for (int i = 0; i < arr.length - 1 - 3; i++) {
-            if (arr[i] > arr[i+1]) {
+            if (arr[i] > arr[i + 1]) {
                 temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
             }
         }
 
@@ -100,10 +100,10 @@ public class BubbleSort {
         // 第五趟排序
         temp = 0;
         for (int i = 0; i < arr.length - 1 - 4; i++) {
-            if (arr[i] > arr[i+1]) {
+            if (arr[i] > arr[i + 1]) {
                 temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
             }
         }
 
@@ -112,17 +112,17 @@ public class BubbleSort {
 
         System.out.println("冒泡排序：");
 
-        int[] newArr = {6,5,4,3,2,1};
+        int[] newArr = {6, 5, 4, 3, 2, 1};
         temp = 0;
         boolean hasSwitch = false;
         for (int j = 0; j < newArr.length - 1; j++) {
             System.out.println(j);
             for (int i = 0; i < newArr.length - 1 - j; i++) {
-                if (newArr[i] > newArr[i+1]) {
+                if (newArr[i] > newArr[i + 1]) {
                     hasSwitch = true;
                     temp = newArr[i];
-                    newArr[i] = newArr[i+1];
-                    newArr[i+1] = temp;
+                    newArr[i] = newArr[i + 1];
+                    newArr[i + 1] = temp;
                 }
             }
             if (!hasSwitch) {

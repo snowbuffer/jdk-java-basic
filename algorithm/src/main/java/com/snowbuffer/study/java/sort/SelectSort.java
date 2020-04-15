@@ -13,7 +13,7 @@ public class SelectSort {
     public static void main(String[] args) {
 
 
-        int[] arr = {6,5,4,3,2,1}; // 从小到大排序
+        int[] arr = {6, 5, 4, 3, 2, 1}; // 从小到大排序
 
         // 第一轮： 假定第一个元素为最小
         int minIndex = 0;
@@ -24,7 +24,7 @@ public class SelectSort {
                 minIndex = i;
             }
         }
-        if(minIndex != 0) {
+        if (minIndex != 0) {
             arr[minIndex] = arr[0];
             arr[0] = min;
         }
@@ -39,7 +39,7 @@ public class SelectSort {
                 minIndex = i;
             }
         }
-        if(minIndex != 1) {
+        if (minIndex != 1) {
             arr[minIndex] = arr[1];
             arr[1] = min;
         }
@@ -54,7 +54,7 @@ public class SelectSort {
                 minIndex = i;
             }
         }
-        if(minIndex != 2) {
+        if (minIndex != 2) {
             arr[minIndex] = arr[2];
             arr[2] = min;
         }
@@ -69,7 +69,7 @@ public class SelectSort {
                 minIndex = i;
             }
         }
-        if(minIndex != 3) {
+        if (minIndex != 3) {
             arr[minIndex] = arr[3];
             arr[3] = min;
         }
@@ -84,14 +84,14 @@ public class SelectSort {
                 minIndex = i;
             }
         }
-        if(minIndex != 4) {
+        if (minIndex != 4) {
             arr[minIndex] = arr[4];
             arr[4] = min;
         }
         System.out.println(Arrays.toString(arr));
 
         System.out.println("选择排序");
-        int[] newArr = {6,5,4,3,2,1}; // 从小到大排序
+        int[] newArr = {6, 5, 4, 3, 2, 1}; // 从小到大排序
         for (int j = 0; j < newArr.length - 1; j++) {
             minIndex = j;
             min = newArr[j];
@@ -101,7 +101,7 @@ public class SelectSort {
                     minIndex = i;
                 }
             }
-            if(minIndex != j) {
+            if (minIndex != j) {
                 newArr[minIndex] = newArr[j];
                 newArr[j] = min;
             }

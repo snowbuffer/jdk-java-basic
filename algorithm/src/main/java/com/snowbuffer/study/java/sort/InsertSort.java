@@ -12,13 +12,13 @@ import java.util.Arrays;
 public class InsertSort {
 
     public static void main(String[] args) {
-        int[] arr = {6,5,4,3,2,1}; // 从小到大排序
+        int[] arr = {6, 5, 4, 3, 2, 1}; // 从小到大排序
 
         // 第一轮：假定第二个元素为需要排序的元素  5与 [6] 进行比较
         int needSortValue = arr[1];
         int needSortInsertIndex = 1 - 1;
 
-        while (needSortInsertIndex >=0 && needSortValue < arr[needSortInsertIndex]) {
+        while (needSortInsertIndex >= 0 && needSortValue < arr[needSortInsertIndex]) {
             arr[needSortInsertIndex + 1] = arr[needSortInsertIndex]; // 后移一位
             needSortInsertIndex--;
         }
@@ -31,7 +31,7 @@ public class InsertSort {
         needSortValue = arr[2];
         needSortInsertIndex = 2 - 1;
 
-        while (needSortInsertIndex >=0 && needSortValue < arr[needSortInsertIndex]) {
+        while (needSortInsertIndex >= 0 && needSortValue < arr[needSortInsertIndex]) {
             arr[needSortInsertIndex + 1] = arr[needSortInsertIndex]; // 后移一位
             needSortInsertIndex--;
         }
@@ -44,7 +44,7 @@ public class InsertSort {
         needSortValue = arr[3];
         needSortInsertIndex = 3 - 1;
 
-        while (needSortInsertIndex >=0 && needSortValue < arr[needSortInsertIndex]) {
+        while (needSortInsertIndex >= 0 && needSortValue < arr[needSortInsertIndex]) {
             arr[needSortInsertIndex + 1] = arr[needSortInsertIndex]; // 后移一位
             needSortInsertIndex--;
         }
@@ -57,7 +57,7 @@ public class InsertSort {
         needSortValue = arr[4];
         needSortInsertIndex = 4 - 1;
 
-        while (needSortInsertIndex >=0 && needSortValue < arr[needSortInsertIndex]) {
+        while (needSortInsertIndex >= 0 && needSortValue < arr[needSortInsertIndex]) {
             arr[needSortInsertIndex + 1] = arr[needSortInsertIndex]; // 后移一位
             needSortInsertIndex--;
         }
@@ -70,7 +70,7 @@ public class InsertSort {
         needSortValue = arr[5];
         needSortInsertIndex = 5 - 1;
 
-        while (needSortInsertIndex >=0 && needSortValue < arr[needSortInsertIndex]) {
+        while (needSortInsertIndex >= 0 && needSortValue < arr[needSortInsertIndex]) {
             arr[needSortInsertIndex + 1] = arr[needSortInsertIndex]; // 后移一位
             needSortInsertIndex--;
         }
@@ -80,11 +80,11 @@ public class InsertSort {
         System.out.println(Arrays.toString(arr));
 
         System.out.println("插入排序");
-        int[] newArr = {6,5,4,3,2,1}; // 从小到大排序
+        int[] newArr = {6, 5, 4, 3, 2, 1}; // 从小到大排序
         for (int i = 1; i < newArr.length; i++) {
             needSortValue = newArr[i];
             needSortInsertIndex = i - 1;
-            while (needSortInsertIndex >=0 && needSortValue < newArr[needSortInsertIndex]) {
+            while (needSortInsertIndex >= 0 && needSortValue < newArr[needSortInsertIndex]) {
                 newArr[needSortInsertIndex + 1] = newArr[needSortInsertIndex]; // 后移一位
                 needSortInsertIndex--;
             }
