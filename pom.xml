@@ -16,6 +16,8 @@
         <module>common</module>
         <module>design_pattern</module>
         <module>algorithm</module>
+        <module>spring4.3.27</module>
+        <module>springboot1.5.22-parent/springboot-helloworld</module>
     </modules>
     <packaging>pom</packaging>
     <description>jdk-java-basic</description>
