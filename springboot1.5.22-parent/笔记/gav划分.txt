@@ -1,0 +1,46 @@
+
+方式1：
+    org.springframework.boot.spring-boot-starter-parent {
+        com.timmydargon.edu.center.center-common-openapi
+        com.timmydargon.edu.center.center-educational-core
+        com.tiimydargon.edu.center.center-user-core
+     }
+
+     mvn结构：
+        com/timmydargon/edu/common/
+                                    xxx
+        com/timmydargon/edu/center/
+                                    center-common-openapi
+                                    center-educational-core
+                                    center-user-core
+
+方式2：
+    com.timmydargon.edu.center.timmydargon-edu-starter-parent {
+        com.timmydargon.edu.center.center-common-openapi
+        com.timmydargon.edu.center.center-educational-core
+        com.tiimydargon.edu.center.center-user-core
+    }
+
+    mvn结构：
+        com/timmydargon/edu/common/
+                                    xxx
+        com/timmydargon/edu/center/
+                                    timmydargon-edu-starter-parent
+                                    center-common-openapi
+                                    center-educational-core
+                                    center-user-core
+
+
+总结：
+
+    com/timmydargon/common/
+                            xxx
+    com/timmydargon/edu/center/
+                                user
+                                report
+                                edu
+
+    com/timmydargon/shop/center/
+                                log
+                                liveroom
+                                item

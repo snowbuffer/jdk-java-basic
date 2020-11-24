@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snowbuffer.study.java.springboot.jdbc.mapper.EmployeeMapper">
+
+
+    <insert id="insertEmployee" parameterType="com.snowbuffer.study.java.springboot.jdbc.domain.Employee"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into employee (last_name,email,gender,d_id) values (#{lastName},#{email},#{gender},#{dId})
+    </insert>
+
+    <update id="updateEmployee" parameterType="com.snowbuffer.study.java.springboot.jdbc.domain.Employee">
+        update employee set last_name = #{lastName},email = #{email},gender = #{gender},d_id = #{dId} where id = #{id}
+    </update>
+
+    <delete id="deleteEmployeeById" parameterType="java.lang.Integer">
+        delete from employee where id = #{id}
+    </delete>
+
+    <select id="getEmployeeById" parameterType="java.lang.Integer"
+            resultType="com.snowbuffer.study.java.springboot.jdbc.domain.Employee">
+        select * from employee where id = #{id}
+    </select>
+
+</mapper>

@@ -1,0 +1,136 @@
+
+依赖模式：
+1.
+  self: 自定义项目
+      spring-boot-dependencies {
+            // 提供通用的依赖管理
+            <dependencyManagement>
+                    <dependencies>...</dependencies>
+            </dependencyManagement>
+
+            // 提供通用的插件管理
+            <pluginManagement>
+                    <plugins>...</plugins>
+            </pluginManagement>
+       }
+
+       spring-boot-starter-parent extends spring-boot-dependencies {
+
+            // 定制通用的依赖管理
+            <dependencyManagement>
+                    <dependencies>...</dependencies>
+            </dependencyManagement>
+
+            // 定制通用的插件管理
+            <pluginManagement>
+                    <plugins>...</plugins>
+            </pluginManagement>
+
+       }
+
+       self extends spring-boot-starter-parent {
+            // 应用依赖
+       }
+   
+2.
+   starter: 启动器项目
+       spring-boot-starter-parent
+       spring-boot-starter-xxx1
+       spring-boot-starter-xxx2
+       ...
+
+       实例：
+       spring-boot-parent extends spring-boot-dependencies  {
+            // 定制通用的依赖管理
+            <dependencyManagement>
+                    <dependencies>...</dependencies>
+            </dependencyManagement>
+
+            // 定制通用的插件管理
+            <pluginManagement>
+                    <plugins>...</plugins>
+            </pluginManagement>
+       }
+
+       spring-boot-starters extends spring-boot-parent{
+            <modules>
+                <module>spring-boot-starter</module>
+                <module>spring-boot-starter-web</module>
+            </modules>
+       }
+
+       spring-boot-starter-web extends spring-boot-starters {
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter</artifactId>  // 必须
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-validator</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-web</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-webmvc</artifactId>
+                </dependency>
+            </dependencies>
+       }
+   
+
+
+   =》 模式：
+        spring-boot-starter-web
+            extends spring-boot-starters
+                extends spring-boot-parent 定制层
+                    extends spring-boot-dependencies  通用层
+        self
+            extends spring-boot-starter-parent  定制层
+                extends spring-boot-dependencies  通用层
+   =》 总结：spring-boot-starter-web == self
+
+   =》 推进：
+            方式1： 直接继承 spring-boot-starter-parent: 缺点： 如果新增通用jar包，需要在self1,self2,self3分别配置，无法进行版本管理
+                self1
+                    extends spring-boot-starter-parent  定制层
+                        extends spring-boot-dependencies  通用层
+                self2
+                    extends spring-boot-starter-parent  定制层
+                        extends spring-boot-dependencies  通用层
+                self3
+                    extends spring-boot-starter-parent  定制层
+                        extends spring-boot-dependencies  通用层
+
+            方式2：自定义 timmydargon-edu-starter-parent: 优点： 如果新增通用jar包，需要在self1,self2,self3分别配置，但可以进行版本管理
+                timmydargon-edu-starter-parent extends spring-boot-starter-parent {
+                            // 定制通用的依赖管理
+                            <dependencyManagement>
+                                    <dependencies>...</dependencies>
+                            </dependencyManagement>
+
+                            // 定制通用的插件管理
+                            <pluginManagement>
+                                    <plugins>...</plugins>
+                            </pluginManagement>
+                }
+                self1
+                    extends timmydargon-edu-starter-parent  定制层
+                        extends spring-boot-dependencies  通用层
+                self2
+                    extends timmydargon-edu-starter-parent  定制层
+                        extends spring-boot-dependencies  通用层
+                self3
+                    extends timmydargon-edu-starter-parent  定制层
+                        extends spring-boot-dependencies  通用层
+

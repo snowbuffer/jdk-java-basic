@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdbsa #jdbc:h2:file:./testdbsa;DB_CLOSE_ON_EXIT=FALSE
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    schema:
+      - classpath:sql/department.sql
+      - classpath:sql/employee.sql
+    #data: classpath:data.sql
+  h2:
+    console:
+      settings:
+        web-allow-others=true: true
+        trace: true
+      # 页面访问地址：http://localhost:8080/h2-console   => JDBC URL: jdbc:h2:mem:testdbsa
+      path: /h2-console
+      enabled: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
