@@ -6,6 +6,7 @@ import java.util.List;
 //University 就是 Composite , 可以管理College
 public class University extends OrganizationComponent {
 
+	// 存的是 College
 	List<OrganizationComponent> organizationComponents = new ArrayList<OrganizationComponent>();
 
 	// 构造器
