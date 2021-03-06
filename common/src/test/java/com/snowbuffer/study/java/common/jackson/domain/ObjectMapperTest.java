@@ -3,6 +3,7 @@ package com.snowbuffer.study.java.common.jackson.domain;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Test;
@@ -73,6 +74,7 @@ public class ObjectMapperTest {
             dataMap.put("marry", null);
 
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.enable(SerializationFeature.INDENT_OUTPUT); // 格式化输出
             //{"birthday":1594884443501,"uId":9527,"uName":"华安","price":9998.45,"marry":null}
             String json = objectMapper.writeValueAsString(dataMap);
             System.out.println(json);
@@ -182,7 +184,7 @@ public class ObjectMapperTest {
                 System.out.println("输出 json 文件：" + jsonFile.getAbsolutePath());
             }
             List<User> userList = new ObjectMapper().readValue(jsonFile, List.class);
-            //{uId=2000, uName=李四, birthday=1594882217908, price=9800.78}
+            //{uId=2000, uName=李四, birthday=1594882217908, price=980.78}
             System.out.println(userList.get(1));
         } catch (Exception e) {
             e.printStackTrace();
