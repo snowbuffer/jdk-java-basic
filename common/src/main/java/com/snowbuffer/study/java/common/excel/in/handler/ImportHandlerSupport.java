@@ -323,7 +323,7 @@ public abstract class ImportHandlerSupport extends AbstractHandlerSupport {
          */
         @Override
         public void doAfterAllAnalysed(AnalysisContext context) {
-            isParseSucceed = context.getParseSuccess();
+            isParseSucceed = context.getParseSuccess(); // excel row -> T 转换过程中是否存在数据异常
             sheetName = context.getCurrentSheet().getSheetName();
             lastHeadList = context.getCurrentSheet().getLastHeadList();
             this.logger.info(innerLogTemplate, String.format("当前sheet:%s, 解析完成，结果:%s", sheetName, isParseSucceed));

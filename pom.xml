@@ -18,6 +18,7 @@
         <module>algorithm</module>
         <module>spring4.3.27</module>
         <module>only-test</module>
+        <module>redis</module>
     </modules>
     <packaging>pom</packaging>
     <description>jdk-java-basic</description>
