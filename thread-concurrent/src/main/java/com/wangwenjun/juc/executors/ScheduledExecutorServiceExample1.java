@@ -54,17 +54,29 @@ public class ScheduledExecutorServiceExample1 {
         {
             long currentTimeMillis = System.currentTimeMillis();
             if (interval.get() == 0) {
-                System.out.printf("The first time trigger task at %d\n", currentTimeMillis);
+                System.out.printf(Thread.currentThread().getName() + "The first time trigger task at %d\n", currentTimeMillis);
             } else {
-                System.out.printf("The actually spend [%d]\n", currentTimeMillis - interval.get());
+                System.out.printf(Thread.currentThread().getName() + "The actually spend [%d]\n", currentTimeMillis - interval.get());
             }
             interval.set(currentTimeMillis);
-            System.out.println(Thread.currentThread().getName());
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+        }, 1, 2, TimeUnit.SECONDS);
+
+        final AtomicLong interval2 = new AtomicLong(0L);
+        ScheduledFuture<?> future1 = executor.scheduleAtFixedRate(() ->
+        {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (interval2.get() == 0) {
+                System.out.printf(Thread.currentThread().getName() + "@@@@The first time trigger task at %d\n", currentTimeMillis);
+            } else {
+                System.out.printf(Thread.currentThread().getName() + "@@@@The actually spend [%d]\n", currentTimeMillis - interval2.get());
+            }
+            interval2.set(currentTimeMillis);
 
         }, 1, 2, TimeUnit.SECONDS);
     }
