@@ -58,7 +58,7 @@ public class CompletableFutureExample1 {
         IntStream.range(0, 10).boxed()
                 .forEach(i -> CompletableFuture.supplyAsync(CompletableFutureExample1::get)
                         .thenAccept(CompletableFutureExample1::display)
-                        .whenComplete((v, t) -> System.out.println(i + " DONE"))
+                        .whenComplete((v, t) -> System.out.println(Thread.currentThread().getName() + " " + i + " DONE"))
                 );
         Thread.currentThread().join();
     }
