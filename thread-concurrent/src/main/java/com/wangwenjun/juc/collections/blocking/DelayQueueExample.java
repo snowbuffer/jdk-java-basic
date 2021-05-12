@@ -23,6 +23,10 @@ import java.util.concurrent.Delayed;
  */
 public class DelayQueueExample {
 
+    /**
+     * DelayQueue add时候仅拿当前元素与队列中的第一个元素进行比较，因此当添加n个元素后，过期时间最早的会排在第一个，剩下的元素顺序随机
+     * 当take一个元素时，会移除到队列第一个元素(已过期，非过期阻塞等待)，然后在重新排列一次队列，再重新找出一个过期时间最早的元素，并放在队列的第一个
+     */
 
     /**
      * private[this] def create():DelayQueue[T:< Delayed]={
