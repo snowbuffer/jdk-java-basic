@@ -7,7 +7,30 @@ import java.util.Map;
 import java.util.Set;
 
 public class ParameterizedTypeTest<T extends Number & Serializable, V> {
+    /*
+            实例1：Map<String, List<T>> map2
+                其中Map<String, List<T>> 是 ParameterizedType
+                其中String 是Class
+                其中List<T> 是 新的 ParameterizedType
+                其中T 是 TypeVariable
 
+            实例2：Class<?> clz
+                其中Class<?> 是 ParameterizedType
+                其中? 是 WildcardType
+
+            实例3：Class<T[]> tclzArray
+                其中Class<T[]> 是 ParameterizedType
+                其中T[] 是 GenericArrayType
+
+            实例4：T key
+                其中T 是 TypeVariable
+
+            实例5：V[] values
+                其中V 是 GenericArrayType
+
+            实例6：List aList;
+                其中List 是 Class
+     */
     private Map<String, ParameterizedTypeTest> map;  // 存在泛型，则整个变量就是一个ParameterizedType
     private Set<String> set1;
     private Class<?> clz;
