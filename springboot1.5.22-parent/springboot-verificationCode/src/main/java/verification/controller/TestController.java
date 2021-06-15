@@ -1,6 +1,8 @@
 package verification.controller;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import verification.verifycode.VerifyCodeFactory;
 import verification.verifycode.support.PicTypeEnum;
 import verification.verifycode.support.VerifyCodeData;
+
+import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Description:
@@ -26,7 +31,25 @@ public class TestController {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResultDataDto getPictureCode() {
         VerifyCodeData verifyCodeData = VerifyCodeFactory.getDefaultVerifyCode().generate(110, 40, PicTypeEnum.JPEG);
+        VerifyCodeDTO.builder()
+                .uniqueId(UUID.randomUUID().toString())
+                .picContent(verifyCodeData.getPicContent())
+                .code(verifyCodeData.getCode()).build();
         return ResultDataDto.of(null, verifyCodeData.getPicContent());
+    }
+
+    @Data
+    @SuperBuilder
+    @NoArgsConstructor
+    public class VerifyCodeDTO implements Serializable {
+
+        private static final long serialVersionUID = -4541161163379725139L;
+
+        private String picContent;
+
+        private String code;
+
+        private String uniqueId;
     }
 
     @Data
