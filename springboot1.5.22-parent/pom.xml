@@ -16,6 +16,7 @@
         <module>springboot-helloworld</module>
         <module>springboot-mvc-crud</module>
         <module>springboot-jdbc-mybatis</module>
+        <module>springboot-verificationCode</module>
     </modules>
 
     <dependencyManagement>
