@@ -41,7 +41,7 @@ public class TestController {
     @Data
     @SuperBuilder
     @NoArgsConstructor
-    public class VerifyCodeDTO implements Serializable {
+    public static class VerifyCodeDTO implements Serializable {
 
         private static final long serialVersionUID = -4541161163379725139L;
 
