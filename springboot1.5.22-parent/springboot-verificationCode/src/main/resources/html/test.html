@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $("#scodeA").click(function () {
+            console.info("==")
+            var url = "http://localhost:8080/getPictureCode";
+            var args = {};
+            $.get(url, args, function (data) {
+                console.info(data);
+                $("#scode").attr("src", data.picCode);
+            });
+            return false;
+        });
+
+        $(document).ready(function () {
+            console.info("++")
+            $("#scodeA").trigger("click");
+        });
+
+    })
+</script>
+
+</head>
+<body>
+<img alt="验证码" id="scode"> <a href="#" id="scodeA">看不清?</a>
+</body>
+</html>
