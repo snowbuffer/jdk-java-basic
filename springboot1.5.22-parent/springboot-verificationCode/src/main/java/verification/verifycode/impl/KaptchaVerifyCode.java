@@ -40,8 +40,8 @@ public class KaptchaVerifyCode implements VerifyCode {
 
         Properties properties = defaultKaptcha.getConfig().getProperties();
 
-        properties.put("kaptcha.image.width", width);
-        properties.put("kaptcha.image.height", height);
+        properties.put("kaptcha.image.width", width + "");
+        properties.put("kaptcha.image.height", height + "");
 
         return doGenerate(picTypeEnum);
     }
