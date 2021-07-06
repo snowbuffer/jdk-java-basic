@@ -10,7 +10,7 @@ import java.util.Collection;
  */
 public class ElementExpression extends ReadXmlExpression {
     /**
-     * 用来记录组合的ReadXmlExpression元素
+     * 用来记录组合的ReadXmlExpression元素  需要按顺序添加, 例如： /root/a/b/c
      */
     private Collection<ReadXmlExpression> eles = new ArrayList<ReadXmlExpression>();
     /**

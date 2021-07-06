@@ -1,7 +1,13 @@
 package verification.verifycode.impl;
 
+import com.google.code.kaptcha.GimpyEngine;
+import com.google.code.kaptcha.NoiseProducer;
 import com.google.code.kaptcha.impl.DefaultKaptcha;
 import com.google.code.kaptcha.util.Config;
+import com.google.code.kaptcha.util.Configurable;
+import com.jhlabs.image.RippleFilter;
+import com.jhlabs.image.TransformFilter;
+import com.jhlabs.image.WaterFilter;
 import org.springframework.util.Assert;
 import verification.verifycode.VerifyCode;
 import verification.verifycode.support.PicTypeEnum;
@@ -9,6 +15,7 @@ import verification.verifycode.support.TagEnum;
 import verification.verifycode.support.VerifyCodeData;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -93,8 +100,8 @@ public class KaptchaVerifyCode implements VerifyCode {
         // 字体大小
         properties.setProperty("kaptcha.textproducer.font.size", "30");
         // 字体颜色
-        properties.setProperty("kaptcha.textproducer.font.color", "black");
-        properties.setProperty("kaptcha.textproducer.char.string", "23456789ABCDEFGHJKLMNPQRSTUVWXYZ");
+        properties.setProperty("kaptcha.textproducer.font.color", "0,122,255"); //
+        properties.setProperty("kaptcha.textproducer.char.string", "123456789");
         // 验证码长度
         properties.setProperty("kaptcha.textproducer.char.length", "4");
         // 干扰实现类
@@ -105,15 +112,16 @@ public class KaptchaVerifyCode implements VerifyCode {
         // 背景颜色渐变，结束颜色
         properties.setProperty("kaptcha.background.clear.to", "white");
         // 字体
-        properties.setProperty("kaptcha.textproducer.font.names", "宋体,楷体,微软雅黑");
+        properties.setProperty("kaptcha.textproducer.font.names", "Microsoft YaHei");
         /**
          * 图片样式：
          * 水纹com.google.code.kaptcha.impl.WaterRipple
          * 鱼眼com.google.code.kaptcha.impl.FishEyeGimpy
          * 阴影com.google.code.kaptcha.impl.ShadowGimpy
          */
-        properties.setProperty("kaptcha.obscurificator.impl", "com.google.code.kaptcha.impl.WaterRipple");
+        properties.setProperty("kaptcha.obscurificator.impl", "verification.verifycode.support.NoWaterRipple");
         Config config = new Config(properties);
         defaultKaptcha.setConfig(config);
     }
+
 }

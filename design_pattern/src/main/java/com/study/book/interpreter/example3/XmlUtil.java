@@ -7,6 +7,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class XmlUtil {
     public static Document getRoot(String filePathName) throws Exception {
+        filePathName = XmlUtil.class.getClassLoader().getResource(filePathName).getPath();
         Document doc = null;
         //建立一个解析器工厂
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
